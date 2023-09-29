@@ -23,14 +23,6 @@ jobs:
         run: |
           curl https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy/-/raw/main/deployment/ci/Dockerfile?ref_type=heads -o Dockerfile
 
-      - name: Commit and push
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m 'update ${{ github.event.client_payload.app }} to version ${{ github.event.client_payload.tag }}' --allow-empty 
-          git push -u origin HEAD
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -47,6 +39,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
+          context: .
           push: true
           #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
           tags: ghcr.io/${{ env.repository }}:latest
