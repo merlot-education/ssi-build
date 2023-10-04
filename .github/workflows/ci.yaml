@@ -19,10 +19,6 @@ jobs:
         run: echo "repository=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
         #run: echo "repository=merlot-education/auth-service-image" >> $GITHUB_ENV
 
-      - name: Get Dockerfile from upstream
-        run: |
-          curl https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy/-/raw/main/deployment/ci/Dockerfile?ref_type=heads -o Dockerfile
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -40,6 +36,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git
+          file: deployment/ci/Dockerfile
           push: true
           #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
           tags: ghcr.io/${{ env.repository }}:latest
