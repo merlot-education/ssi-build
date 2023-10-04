@@ -1,4 +1,4 @@
-name: Build Policy Component
+name: Build Cache Component
 
 on:
   workflow_dispatch:
