@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Build Policy Component
 
 on:
   workflow_dispatch:
@@ -17,7 +17,6 @@ jobs:
 
       - name: Repo environment variable
         run: echo "repository=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
-        #run: echo "repository=merlot-education/auth-service-image" >> $GITHUB_ENV
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -39,4 +38,4 @@ jobs:
           file: deployment/ci/Dockerfile
           push: true
           #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
-          tags: ghcr.io/${{ env.repository }}:latest
+          tags: ghcr.io/${{ env.repository }}/policy:latest
