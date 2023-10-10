@@ -1,4 +1,4 @@
-name: Build Infohub Component
+name: Build TSA Cache Component
 
 on:
   workflow_dispatch:
@@ -34,8 +34,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: https://gitlab.eclipse.org/eclipse/xfsc/tsa/infohub.git
+          context: https://gitlab.eclipse.org/eclipse/xfsc/tsa/cache.git
           file: deployment/ci/Dockerfile
           push: true
           #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
-          tags: ghcr.io/${{ env.repository }}/infohub:latest
+          tags: ghcr.io/${{ env.repository }}/tsa/cache:latest
