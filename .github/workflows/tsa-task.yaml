@@ -1,4 +1,4 @@
-name: Build TSA Task Component
+name: Build TSA Task
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: Build TSA Policy Component
+name: Build TSA Policy
 
 on:
   workflow_dispatch:

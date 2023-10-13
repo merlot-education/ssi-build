@@ -1,4 +1,4 @@
-name: Build OCM Connection Manager Component
+name: Build OCM Connection Manager
 
 on:
   workflow_dispatch:

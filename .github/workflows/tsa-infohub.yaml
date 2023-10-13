@@ -1,4 +1,4 @@
-name: Build TSA Infohub Component
+name: Build TSA Infohub
 
 on:
   workflow_dispatch:

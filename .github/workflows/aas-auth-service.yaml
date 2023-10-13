@@ -1,4 +1,4 @@
-name: Build AAS Auth Service Component
+name: Build AAS Auth Service
 
 on:
   workflow_dispatch:

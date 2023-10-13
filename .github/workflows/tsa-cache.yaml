@@ -1,4 +1,4 @@
-name: Build TSA Cache Component
+name: Build TSA Cache
 
 on:
   workflow_dispatch:

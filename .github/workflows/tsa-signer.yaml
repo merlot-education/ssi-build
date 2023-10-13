@@ -1,4 +1,4 @@
-name: Build TSA Signer Component
+name: Build TSA Signer
 
 on:
   workflow_dispatch:
