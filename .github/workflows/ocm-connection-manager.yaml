@@ -34,9 +34,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: https://gitlab.eclipse.org/eclipse/xfsc/ocm/ocm-engine.git
-          build-contexts: |
-            name=subfolder,path=apps/connection-manager
+          context: https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git#:apps/connection-manager
           file: deployment/ci/Dockerfile
           push: true
           #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
