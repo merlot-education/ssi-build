@@ -19,7 +19,7 @@ jobs:
         cache: 'npm'
 
     - name: npm
-      run: RUN npm i -g yarn && yarn install
+      run: npm i -g yarn && yarn install
 
     - name: npm2
       run: npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
