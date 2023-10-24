@@ -34,9 +34,9 @@ jobs:
       run: |
         chmod +x gradlew
         cd android && ./gradlew bundleRelease
-      working-directory: ./app/android
+      working-directory: ./android
 
     - uses: actions/upload-artifact@v3
       with:
         name: pcm-app.apk
-        path: app/android/app/build/outputs/apk
+        path: app/app/build/outputs/apk
