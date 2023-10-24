@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: clone
-      run: git clone https://gitlab.eclipse.org/eclipse/xfsc/pcm/app.git
+      run: git clone https://gitlab.eclipse.org/eclipse/xfsc/pcm/app.git .
 
     - name: Use Node.js
       uses: actions/setup-node@v3
@@ -22,7 +22,6 @@ jobs:
       run: |
         npm i -g yarn && yarn install
         npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
-      working-directory: ./app
 
     - name: set up JDK 17
       uses: actions/setup-java@v3
@@ -35,7 +34,7 @@ jobs:
       run: |
         chmod +x gradlew
         cd android && ./gradlew bundleRelease
-      working-directory: ./android
+      working-directory: ./app/android
 
     - uses: actions/upload-artifact@v3
       with:
