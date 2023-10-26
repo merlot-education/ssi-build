@@ -34,8 +34,6 @@ jobs:
         ./gradlew assembleDebug
       working-directory: ./android
 
-    - run: tree -d android/app/build/outputs/apk
-
     - uses: actions/upload-artifact@v3
       with:
         name: pcm-app.apk
