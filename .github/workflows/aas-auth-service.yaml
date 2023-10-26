@@ -35,8 +35,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: https://gitlab.eclipse.org/mjuergenscg/authenticationauthorization.git
-          file: deploy/ci/Dockerfile
+          context: https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git
+          file: Dockerfile
           push: true
           #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
           tags: ghcr.io/${{ env.repository }}/aas/auth-service:latest
