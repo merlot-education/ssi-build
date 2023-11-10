@@ -17,7 +17,13 @@ jobs:
 
       - name: Repo environment variable
         run: echo "repository=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
-        #run: echo "repository=merlot-education/auth-service-image" >> $GITHUB_ENV
+
+      - name: Get pom.xml from upstream
+        run: wget https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization/-/raw/main/service/pom.xml?ref_type=heads
+
+      - name: Get Project Version from pom.xml
+        uses: entimaniac/read-pom-version-action@1.0.0
+        id: getVersion
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -38,5 +44,4 @@ jobs:
           context: https://gitlab.eclipse.org/mjuergenscg/authenticationauthorization.git#feature/higher-res-qr
           file: Dockerfile
           push: true
-          #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
-          tags: ghcr.io/${{ env.repository }}/aas/auth-service:latest
+          tags: ghcr.io/${{ env.repository }}/aas/auth-service:${{ steps.getVersion.outputs.version }},ghcr.io/${{ env.repository }}/aas/auth-service:latest
