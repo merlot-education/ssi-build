@@ -34,7 +34,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: https://gitlab.eclipse.org/mjuergenscg/policy.git#merlot-working
+          context: https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git
           file: deployment/ci/Dockerfile
           push: true
           #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
