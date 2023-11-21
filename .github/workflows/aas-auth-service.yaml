@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: 'eclipse/xfsc/authenticationauthorization.git'
-          github-server-url: 'https://gitlab.eclipse.org'
+          repository: 'xfsc/authenticationauthorization.git'
+          github-server-url: 'https://gitlab.eclipse.org/eclipse'
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
