@@ -12,6 +12,7 @@ jobs:
     steps:
       - run: |
           git clone https://gitlab.eclipse.org/eclipse/xfsc/ocm/ocm-engine.git .
+          git checkout 576d95f5
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
