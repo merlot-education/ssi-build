@@ -11,7 +11,8 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.eclipse.org/eclipse/xfsc/ocm/ocm-engine.git .
+          git clone https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git .
+          git checkout fix-build-2
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')

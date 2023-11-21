@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: |
           git clone https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git .
-          git checkout fix-build
+          git checkout fix-build-2
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
