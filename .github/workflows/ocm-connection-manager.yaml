@@ -14,6 +14,8 @@ jobs:
           git clone https://gitlab.eclipse.org/eclipse/xfsc/ocm/ocm-engine.git .
           git checkout 576d95f5
 
+      - run: touch apps/connection-manager/yarn.lock
+
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
         shell: bash {0}
