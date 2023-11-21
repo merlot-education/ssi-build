@@ -10,13 +10,18 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - run: |
+          git clone https://gitlab.eclipse.org/eclipse/xfsc/ocm/ocm-engine.git .
 
-      - name: Repo environment variable
-        run: echo "repository=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
+      - name: Image tag
+        if: startsWith(github.ref, 'refs/heads/')
+        shell: bash {0}
+        run: |
+          tag="$(git rev-parse --short HEAD)"
+          echo "tag=$tag" >> $GITHUB_ENV
+
+      - name: Repo + image name environment variable
+        run: echo "repository=${GITHUB_REPOSITORY,,}/ocm/principal-manager" >> $GITHUB_ENV
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -34,8 +39,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: https://gitlab.eclipse.org/eclipse/xfsc/ocm/ocm-engine.git#:apps/principal-manager
+          context: apps/principal-manager
           file: deployment/ci/Dockerfile
           push: true
-          #tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
-          tags: ghcr.io/${{ env.repository }}/ocm/principal-manager:latest
+          tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
+          build-args: |
+            ENVIRONMENT=${{ env.environment }}
