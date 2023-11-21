@@ -10,10 +10,8 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: 'xfsc/authenticationauthorization.git'
-          github-server-url: 'https://gitlab.eclipse.org/eclipse'
+      - run: |
+          git clone https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git .
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
