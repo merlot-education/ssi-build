@@ -12,7 +12,6 @@ jobs:
     steps:
       - run: |
           git clone https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git .
-          git checkout e6d8654f
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')

@@ -12,7 +12,6 @@ jobs:
     steps:
       - run: |
           git clone https://gitlab.eclipse.org/eclipse/xfsc/tsa/cache.git .
-          git checkout 127b4ae5
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')

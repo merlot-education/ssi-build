@@ -12,7 +12,6 @@ jobs:
     steps:
       - run: |
           git clone https://gitlab.eclipse.org/eclipse/xfsc/tsa/signer.git .
-          git checkout 7cc691db
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
