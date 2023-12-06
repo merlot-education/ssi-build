@@ -39,7 +39,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: aries-mediator-service/acapy
+          context: aries-mediator-service
           file: aries-mediator-service/acapy/Dockerfile.acapy
           push: true
           tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
