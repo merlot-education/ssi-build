@@ -11,7 +11,7 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.eclipse.org/mjuergenscg/infrastructure.git .
+          git clone https://github.com/hyperledger/aries-mediator-service .
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
@@ -39,8 +39,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: aries-mediator-service
-          file: aries-mediator-service/acapy/Dockerfile.acapy
+          context: .
+          file: acapy/Dockerfile.acapy
           push: true
           tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
           build-args: |
