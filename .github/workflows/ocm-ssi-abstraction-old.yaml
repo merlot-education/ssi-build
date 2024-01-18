@@ -11,7 +11,7 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.com/gaia-x/data-infrastructure-federation-services/ocm/ssi-abstraction.git .
+          git clone https://gitlab.eclipse.org/mjuergenscg/ssi-abstraction.git .
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
