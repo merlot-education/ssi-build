@@ -11,8 +11,7 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.com/gaia-x/data-infrastructure-federation-services/ocm/proof-manager .
-          git checkout tags/v1-build-fix
+          git clone https://gitlab.com/gaia-x/data-infrastructure-federation-services/ocm/ssi-abstraction.git .
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
