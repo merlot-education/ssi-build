@@ -1,4 +1,4 @@
-name: Build OCM Attestation Manager Old
+name: Build OCM SSI Abstraction Old
 
 on:
   workflow_dispatch:
@@ -11,7 +11,8 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.com/gaia-x/data-infrastructure-federation-services/ocm/attestation-manager .
+          git clone https://gitlab.com/gaia-x/data-infrastructure-federation-services/ocm/proof-manager .
+          git checkout tags/v1-build-fix
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
@@ -21,7 +22,7 @@ jobs:
           echo "tag=$tag" >> $GITHUB_ENV
 
       - name: Repo + image name environment variable
-        run: echo "repository=${GITHUB_REPOSITORY,,}/ocm/attestation-manager" >> $GITHUB_ENV
+        run: echo "repository=${GITHUB_REPOSITORY,,}/ocm/ssi-abstraction" >> $GITHUB_ENV
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
