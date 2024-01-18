@@ -1,4 +1,4 @@
-name: Build OCM Proof Manager
+name: Build OCM Proof Manager Old
 
 on:
   workflow_dispatch:
