@@ -1,0 +1,47 @@
+name: Build OCM Proof Manager Old
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - run: |
+          git clone https://gitlab.com/gaia-x/data-infrastructure-federation-services/ocm/proof-manager .
+
+      - name: Image tag
+        if: startsWith(github.ref, 'refs/heads/')
+        shell: bash {0}
+        run: |
+          tag="$(git rev-parse --short HEAD)"
+          echo "tag=$tag" >> $GITHUB_ENV
+
+      - name: Repo + image name environment variable
+        run: echo "repository=${GITHUB_REPOSITORY,,}/ocm/proof-manager" >> $GITHUB_ENV
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: deployment/dev/Dockerfile
+          push: true
+          tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
+          build-args: |
+            ENVIRONMENT=${{ env.environment }}
