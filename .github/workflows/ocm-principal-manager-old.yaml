@@ -11,7 +11,7 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.com/gaia-x/data-infrastructure-federation-services/ocm/principal-manager .
+          git clone https://gitlab.eclipse.org/mjuergenscg/principal-manager.git .
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
@@ -40,7 +40,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: deployment/dev/Dockerfile
+          file: deployment/ci/Dockerfile
           push: true
           tags: ghcr.io/${{ env.repository }}:${{ env.tag }},ghcr.io/${{ env.repository }}:latest
           build-args: |
