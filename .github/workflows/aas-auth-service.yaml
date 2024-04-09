@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: |
           git clone https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git . &&\
-          wget https://raw.githubusercontent.com/merlot-education/merlot-aas/64a44ce2cd21deb4bb271160967189bdc1e1127d/cors-config.patch &&\
+          wget https://raw.githubusercontent.com/merlot-education/merlot-aas/c60552e840f184a20753dc2c1d4c68299db331a7/cors-config.patch &&\
           git apply cors-config.patch
 
       - name: Image tag
