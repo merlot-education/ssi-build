@@ -19,7 +19,7 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/')
         shell: bash {0}
         run: |
-          tag="$(git rev-parse --short HEAD)"
+          tag="$GITHUB_SHA"
           echo "tag=$tag" >> $GITHUB_ENV
 
       - name: Repo + image name environment variable
