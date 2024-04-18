@@ -11,7 +11,9 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git .
+          git clone https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git . &&\
+          wget https://raw.githubusercontent.com/merlot-education/merlot-aas/18c00be0a2b4585753cc541d2df5d311a82e33c2/cors-config.patch &&\
+          git apply cors-config.patch
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
