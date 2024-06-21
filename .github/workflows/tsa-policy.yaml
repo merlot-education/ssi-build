@@ -11,8 +11,7 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.eclipse.org/tsbytecollection/policy-whitelisting.git .
-          git checkout e6d8654
+          git clone https://gitlab.eclipse.org/tsbytecollection/policy-whitelisting.git . -b stableWhitelisting
 
       - name: Verify Dockerfile path
         run: ls -al deployment/ci/Dockerfile
