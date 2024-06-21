@@ -11,7 +11,7 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git .
+          git clone https://gitlab.eclipse.org/tsbytecollection/policy-whitelisting.git .
 
       - name: Image tag
         if: startsWith(github.ref, 'refs/heads/')
