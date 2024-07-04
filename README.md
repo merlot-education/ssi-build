@@ -3,8 +3,8 @@ this repo mainly contains CI workflows for building container images and pushing
 
 subcomponents covered are:
 ### AAS
-https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization
+https://github.com/merlot-education/merlot-aas
 ### TSA
-https://gitlab.eclipse.org/eclipse/xfsc/tsa
+https://github.com/merlot-education/merlot-tsa-policy
 ### OCM
-https://gitlab.eclipse.org/eclipse/xfsc/ocm/ocm-engine
+https://github.com/merlot-education/merlot-ocm
