@@ -11,7 +11,7 @@ jobs:
       packages: write
     steps:
       - run: |
-          git clone https://gitlab.eclipse.org/tsbytecollection/policy-whitelisting.git . -b stableWhitelisting
+          git clone https://github.com/merlot-education/merlot-tsa-policy.git . -b stableWhitelisting
 
       - name: Verify Dockerfile path
         run: ls -al deployment/ci/Dockerfile
