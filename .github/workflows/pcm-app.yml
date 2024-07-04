@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: clone
-      run: git clone https://gitlab.eclipse.org/mjuergenscg/app.git .
+      run: git clone https://github.com/merlot-education/merlot-pcm-app.git .
       
     - uses: actions/setup-node@v4
       with:
